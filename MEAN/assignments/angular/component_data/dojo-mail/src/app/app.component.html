@@ -5,11 +5,34 @@
   </h1>
 </div>
 
-<table>
-  <thead>
+<fieldset>
     
-  </thead>
-</table>
+     <table>
+          <thead>
+               <td>Email</td>
+               <td>Importance</td>
+               <td>Subject</td>
+               <td>Content</td>
+          </thead>
+          <tbody>
+               <tr *ngFor="let email of emails">
+                    <td>
+                         {{ email.email }}
+                    </td>
+                    <td>
+                         <p *ngIf="email.importance">High</p>
+                         <p *ngIf="!email.importance">Low</p>
+                    </td>
+                    <td>
+                         {{ email.subject }}
+                    </td>
+                    <td>
+                         {{ email.content }}
+                    </td>
+               </tr>
+          </tbody>
+     </table>
+</fieldset>
 
 
 
