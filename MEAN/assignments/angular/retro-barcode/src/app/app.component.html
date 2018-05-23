@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>{{title}}
+     <br>
+     {{colorArray}}
+</h1>
+
+
+
+<div class='box' *ngFor="let color of colorArray" [ngStyle]="{ 'background-color': color }">
+     <p>{{color}}</p>
+</div>
+
+<div>
+     <button (click)="colorPicker()">Click me!</button>
+</div>
+
+
+<!-- <div class='box'>
+     <p>color</p>
+</div>
+<div class='box'>
+     <p>color</p>
+</div>
+<div class='box'>
+     <p>color</p>
+</div>
+<div class='box'>
+     <p>color</p>
+</div> -->
