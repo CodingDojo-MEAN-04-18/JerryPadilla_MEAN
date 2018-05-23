@@ -1,0 +1,15 @@
+<header>
+     {{switchBoard}}
+</header>
+
+<div class='container'>
+     <div class='sbox' *ngFor="let switch of switchBoard; let idx = index">
+          <button class='button' *ngIf="switch" [ngClass]="{'on': switch}" (click)="flipTheSwitch(idx)">
+               ON
+          </button>
+          <button class='button' *ngIf="!switch" [ngClass]="{'on': switch}" (click)="flipTheSwitch(idx)">
+               OFF
+          </button>
+     </div>
+</div>
+
