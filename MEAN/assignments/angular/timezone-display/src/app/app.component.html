@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<header class="header">
+     <h1>{{title}}</h1>
+     <br>
+
+     <div class="box" (click)="onButtonClick('PST')" [ngClass]="{selected: selectedTimezone === 'PST'}">
+          <p>PST</p>
+     </div>
+     <div class="box" (click)="onButtonClick('MST')" [ngClass]="{selected: selectedTimezone === 'MST'}">
+          <p>MST</p>
+     </div>
+     <div class="box" (click)="onButtonClick('CST')" [ngClass]="{selected: selectedTimezone === 'CST'}">
+          <p>CST</p>
+     </div>
+     <div class="box" (click)="onButtonClick('EST')" [ngClass]="{selected: selectedTimezone === 'EST'}">
+          <p>EST</p>
+     </div>
+     <div class="box" (click)="onButtonClick('CLEAR')" [ngClass]="{selected: selectedTimezone === 'CLEAR'}">
+          <p>CLEAR</p>
+     </div>
+
+</header>
+
+<br>
+
+<fieldset>
+     <h1 [ngStyle]="{ 'text-align':'center' }">{{time | date:'medium' }}</h1>
+</fieldset>
