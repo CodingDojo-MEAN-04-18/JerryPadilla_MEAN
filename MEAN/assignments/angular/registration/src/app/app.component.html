@@ -1,0 +1,170 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container wrapper">
+     <header>
+          <h2>Registration</h2>
+     </header>
+     <br>
+     <div *ngIf='success'>
+          <div *ngFor='let user of currentUser'>
+               <h4>Thanks for registering {{user.firstName}} {{user.lastName}}. We have sent an email to you at {{user.email}}. We also sent a flat tire to your residence at {{user.streetAddress}} in {{user.city}} in the state of {{user.state}}</h4>
+          </div>
+     </div>
+
+     <div class="container">
+          <form (submit)="onSubmit(formData)" #formData='ngForm'>
+               <div class="form_group" >
+                    <label class="col-2">First Name: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="firstName" 
+                         [(ngModel)]="user.firstName"
+                         #firstName="ngModel"
+                         required
+                         minlength="4"
+                         maxlength="30"
+                    />
+                    <div class="align" *ngIf='firstName.errors'>Must enter first name</div>
+               </div>
+
+               
+               <div class="form_group">
+                    <label class="col-2">Last Name: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="lastName" 
+                         [(ngModel)]="user.lastName"
+                         #lastName="ngModel"
+                         required
+                         minlength="4"
+                         maxlength="30"
+                    />
+               <div class="align" *ngIf='lastName.errors'>Must enter last name</div>
+                    
+               </div>
+
+               
+               <div class="form_group">
+                    <label class="col-2">Email: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="email" 
+                         [(ngModel)]="user.email"
+                         #email="ngModel"
+                         required
+                         minlength="4"
+                         maxlength="30"
+                    />
+                    <div class="align" *ngIf='email.errors'>Must provide a valid Email</div>
+               </div>
+
+               
+               <div class="form_group">
+                    <label class="col-2">Password: </label>
+                    <input class="col-4 form-control align" 
+                         type="password" 
+                         name="password" 
+                         [(ngModel)]="user.password"
+                         #password="ngModel"
+                         required
+                         minlength="8"
+                         maxlength="20"
+                         pattern="^([a-zA-Z0-9@*#]{8,15})$"
+                    />
+               <div class="align" *ngIf='password.errors'>Password must be at least 8 chars</div>
+               </div>
+
+               <div class="form_group">
+                    <label class="col-2">Confirm Password: </label>
+                    <input class="col-4 form-control align" 
+                         type="password" 
+                         name="confirmPassword" 
+                         [(ngModel)]="user.confirmPassword"
+                         #confirmPassword="ngModel"
+                         required
+                         minlength="4"
+                         maxlength="20"
+                         pattern="^([a-zA-Z0-9@*#]{8,15})$"
+                    />
+                    <div class="align" *ngIf='confirmPassword.errors'>Password must be at least 4 chars.</div>
+                    </div>
+
+
+               <div class="form_group">
+                    <label class="col-2">Street Address: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="streetAddress" 
+                         [(ngModel)]="user.streetAddress"
+                         #streetAddress="ngModel"
+                         required
+                         minlength="5"
+                         maxlength="50"
+                    />
+                    <div class="align" *ngIf='streetAddress.errors'>Must enter a street address</div>
+                    </div>
+
+               <div class="form_group">
+                    <label class="col-2">Unit/Apt: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="unitApt" 
+                         [(ngModel)]="user.unitApt"
+                         #unitApt="ngModel"
+                   />
+               </div>
+
+               <div class="form_group">
+                    <label class="col-2">City: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="city" 
+                         [(ngModel)]="user.city"
+                         #city="ngModel"
+                         required
+                         minlength="3"
+                    />
+                    <div class="align" *ngIf='city.errors'>Must enter a city</div>
+               </div>
+
+               <div class="form_group">
+                    <label class="col-2">State: </label>
+                    <input class="col-4 form-control align" 
+                         type="text" 
+                         name="state" 
+                         [(ngModel)]="user.state"
+                         #state="ngModel"
+                         required
+                         minlength="2"
+                         maxlength="2"
+                    />
+                    <div class="align" *ngIf='state.errors'>Two digit state</div>
+               </div>
+
+               <div class="form_group">
+                    <label class="col-2">I'm Feeling Lucky??</label>
+                    <input 
+                         type="radio" 
+                         name="feeling" 
+                         value='yes'
+                         [(ngModel)]="user.feeling"
+                         #feeling='ngModel'
+                         required
+                    />Yes
+                    <input 
+                         type="radio" 
+                         name="feeling" 
+                         value='no'
+                         [(ngModel)]="user.feeling"
+                         #feeling='ngModel'
+                         required
+                    />No
+                    <div class="align" *ngIf="feeling.errors">This is required</div>
+               </div>
+
+               <button type="submit" [disabled]='formData.invalid'>Register</button>
+          </form>
+
+     </div>
+
+</div>
+
